@@ -1,2 +1,4 @@
-# Ignora la carpeta del entorno virutal de desarrollo
+### Ignora la carpeta del entorno virutal de desarrollo
 venv
+### Ignora la carpeta caché de python
+__pycache__
