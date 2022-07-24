@@ -2,3 +2,5 @@
 venv
 ### Ignora la carpeta caché de python
 __pycache__
+### Ignora el archivo de pruebas
+prueba.py
