@@ -3,8 +3,40 @@
 import requests
     ### para lidiar con dataframes
 import pandas as pd
-    ### para lidiar con jsons
-import json
+from os import system
+
+### ANIME MENU
+def AnimeMenu():
+    # Creamos un menú
+    print("Selecciona el # de una de las siguientes opciones:")
+    print("1. Buscar anime por nombre")
+    print("2. Buscar anime por género")
+    print("3. Buscar anime por año de salida")
+    print("0. Salir")
+    seleccion = input("Ingrese su selección: ")
+
+    system("cls")
+    if seleccion == '1':
+        print("Buscar anime por nombre")
+        # Llamamos la función de lista de animes por nombre
+        AnimeName()
+    elif seleccion == '2':
+        print("Buscar anime por género")
+        # Llamamos la función de lista de animes por género
+        AnimeGenero()
+    elif seleccion == '3':
+        print("Buscar anime por año")
+        # Llamamos la función de lista de animes por año
+        AnimeYear()
+    elif seleccion == '0':
+        # Terminamos el programa
+        print("Hasta pronto!")
+    else:
+        # Llamamos la función de menú
+        print("Debes ingresar una de las opciones")
+        print("Presiona cualquier tecla para volver al menú")
+        input()
+        MenuInicio()
 
 ### PEDIR NOMBRE DEL ANIME
 def AnimeName():
@@ -32,10 +64,11 @@ def AnimeYear():
     year = input("De qué año es el anime a buscar?")
     AnimeRequest(nombre="",genero="",year=year)
 
-### MOSTRAR LISTA DE ANIMES V3
+### MOSTRAR LISTA DE ANIMES
 def AnimeRequest(nombre,genero,year):
-    response = requests.get("https://api.jikan.moe/v4/anime?q="+str(nombre)+"&genres="+str(genero)+"&start_date="+str(year)+"&order_by=score&sort=desc")
+    response = requests.get("https://api.jikan.moe/v4/anime?q="+str(nombre)+"&genres="+str(genero)+"&order_by=score&sort=desc&start_date="+str(year))
     respuesta = response.json()
+    #print(respuesta["data"])
     df=pd.DataFrame.from_dict(respuesta["data"])
 
     ### Desanidamos la lista de diccionarios de la columna generos

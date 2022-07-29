@@ -5,10 +5,11 @@ from os import system
     # para ver la hora del sistema
 import datetime
 
-    # animelist.py
-from animelist import AnimeGenero, AnimeName, AnimeYear
+from animelist import AnimeMenu
+from snake import SnakeGame
 
-def MenuInicio():
+def Menu():
+        
     # Limpiar pantalla
     system("cls")
 
@@ -22,28 +23,23 @@ def MenuInicio():
         print("Buena tarde mi señor")
     else:
         print("Buena noche mi señor")
-
+        
     # Creamos un menú
     print("Selecciona el # de una de las siguientes opciones:")
-    print("1. Buscar anime por nombre")
-    print("2. Buscar anime por género")
-    print("3. Buscar anime por año de salida")
+    print("1. Buscar Anime")
+    print("2. Jugar Snake")
     print("0. Salir")
     seleccion = input("Ingrese su selección: ")
 
     system("cls")
     if seleccion == '1':
-        print("Buscar anime por nombre")
+        print("Buscar anime")
         # Llamamos la función de lista de animes por nombre
-        AnimeName()
+        AnimeMenu()
     elif seleccion == '2':
-        print("Buscar anime por género")
+        print("Jugar Snake")
         # Llamamos la función de lista de animes por género
-        AnimeGenero()
-    elif seleccion == '3':
-        print("Buscar anime por año")
-        # Llamamos la función de lista de animes por año
-        AnimeYear()
+        SnakeGame()
     elif seleccion == '0':
         # Terminamos el programa
         print("Hasta pronto!")
@@ -52,7 +48,9 @@ def MenuInicio():
         print("Debes ingresar una de las opciones")
         print("Presiona cualquier tecla para volver al menú")
         input()
-        MenuInicio()
+        Menu()
+
+    
 
 if __name__ == '__main__':
-    MenuInicio()
+    Menu()
