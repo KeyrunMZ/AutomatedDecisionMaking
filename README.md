@@ -11,4 +11,4 @@ Dificultad: Bajo<br />
 
 (¡Gracias por visitar mi post!)
 
-*Nunca sabemos lo suficiente, por ello aprender nos hace más humanos*
+*Nunca sabemos lo suficiente, por ello aprender nos hace más humanos*.
